@@ -64,36 +64,38 @@ inquirer
     },
   ])
   .then((answer) => {
-    const filename =
-      // const yourReadme = generateReadmeFile(answer);
-      writeReadmeFile(filename, yourReadme);
+    const yourReadme = generateReadmeFile(answer);
+    writeReadmeFile(filename, yourReadme);
   });
 
-//TODO how can I call this the right way?
-const createBadge = (license) => {
-  const chosenBadge = {
-    gnu: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
-    mit: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
-    mozilla:
-      "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
-  };
-  return chosenBadge(license);
-};
-
-//TODO create function for adding the license description. How can I call it?
-const addLicenseDesription = (license) => {
-  const chosenLicense = {
-    gnu: "Licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)",
-    mit: "Licensed under the [MIT license](https://choosealicense.com/licenses/mit/).",
-    mozilla:
-      "Licensed under the [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)",
-  };
-};
-
 const generateReadmeFile = (answer) => {
+  //TODO how can I call this the right way?
+  const createBadge = (license) => {
+    const chosenBadge = {
+      gnu: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+      mit: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+      mozilla:
+        "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
+    };
+    //TODO fix this [license]??
+    return createBadge(license);
+  };
+
+  //TODO create function for adding the license description. How can I call it?
+  const addLicenseDescription = (license) => {
+    const chosenLicense = {
+      gnu: "Licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)",
+      mit: "Licensed under the [MIT license](https://choosealicense.com/licenses/mit/).",
+      mozilla:
+        "Licensed under the [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)",
+    };
+    return addLicenseDescription(license);
+  };
+
   const readmeTemplate = `
 # ${answer.projectTitle}
 
+//Todo fix this
 ${this.createBadge(answer.license)}
 
 ## Table of contents
@@ -120,7 +122,8 @@ ${answer.usage}
 
 ## License
 
-text here
+//Todo fix this
+${this.addLicenseDescription(answer.license)}
 
 ## Contributing
 
