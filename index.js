@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-//how to create a file that is called "README.md"?
+//TODO how to create a file that is called "README.md"?
 const writeReadmeFile = (filename, readmeFile) => {
   fs.writeFile(`${filename}.md`, readmeFile, (err) =>
     err ? console.log(err) : console.log("Your README.md file was created!")
@@ -31,6 +31,16 @@ inquirer
       message: "Provide instructions and examples for use here:",
     },
     {
+      type: "list",
+      name: "license",
+      message: "Choose a license badge.",
+      choices: [
+        "GNU General Public License v3.0",
+        "MIT License",
+        "Mozilla Public License 2.0",
+      ],
+    },
+    {
       type: "input",
       name: "contributing",
       message:
@@ -55,52 +65,76 @@ inquirer
   ])
   .then((answer) => {
     const filename =
-    const yourReadme = generateReadmeFile(answer);
-    writeReadmeFile(filename, yourReadme);
+      // const yourReadme = generateReadmeFile(answer);
+      writeReadmeFile(filename, yourReadme);
   });
+
+//TODO how can I call this the right way?
+const createBadge = (license) => {
+  const chosenBadge = {
+    gnu: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+    mit: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+    mozilla:
+      "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
+  };
+  return chosenBadge(license);
+};
+
+//TODO create function for adding the license description. How can I call it?
+const addLicenseDesription = (license) => {
+  const chosenLicense = {
+    gnu: "Licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)",
+    mit: "Licensed under the [MIT license](https://choosealicense.com/licenses/mit/).",
+    mozilla:
+      "Licensed under the [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)",
+  };
+};
 
 const generateReadmeFile = (answer) => {
   const readmeTemplate = `
-  # ${answer.projectTitle}
+# ${answer.projectTitle}
 
-  ![type of badge](link to badge)
+${this.createBadge(answer.license)}
 
-  ## Description
+## Table of contents
 
-  ${answer.description}
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-  ## Table of contents
+## Description
 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
+${answer.description}
 
-  ## Installation
+## Installation
 
-  ${answer.installation}
+${answer.installation}
 
-  ## Usage
+## Usage
 
-  ${answer.usage}
+${answer.usage}
 
-  ## License
+## License
 
-  text here
+text here
 
-  ## Contributing
+## Contributing
 
-  ${answer.contributing}
+${answer.contributing}
 
-  ## Tests
+## Tests
 
-  ${answer.tests}
+${answer.tests}
 
-  ## Questions?
+## Questions?
 
-  Checkout my [GitHub profile](${answer.GitHubUsername})
-  Should you have any additional questions, please reach out to me via [email](${answer.email}).`;
+Checkout my [GitHub profile](${answer.GitHubUsername})<br/>
+Should you have any additional questions, please reach out to me via [email](${
+    answer.email
+  }).`;
   return readmeTemplate;
 };
