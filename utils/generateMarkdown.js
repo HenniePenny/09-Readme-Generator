@@ -1,10 +1,10 @@
 const conditionalRender = (answer, section) => {
   if (answer[section]) {
     return `
-    ## Tests
+## Tests
   
-    ${answer[section]}
-    `;
+${answer[section]}
+`;
   } else return "";
 };
 

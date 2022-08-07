@@ -1,12 +1,13 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const chalk = require("chalk");
 const generateReadmeFile = require("./utils/generateMarkdown");
 
 const writeReadmeFile = (readmeFile) => {
   fs.writeFile(`demo_README.md`, readmeFile, (err) =>
     err
       ? console.log(err)
-      : console.log("Your demo_README.md file was created!")
+      : console.log(chalk.greenBright("Your demo_README.md file was created!"))
   );
 };
 
@@ -15,27 +16,27 @@ inquirer
     {
       type: "input",
       name: "projectTitle",
-      message: "What is the title of your project?",
+      message: chalk.magenta("What is the title of your project?"),
     },
     {
       type: "input",
       name: "description",
-      message: "Please describe your project here.",
+      message: chalk.magenta("Please describe your project here."),
     },
     {
       type: "input",
       name: "installation",
-      message: "What are the installation instructions?",
+      message: chalk.magenta("What are the installation instructions?"),
     },
     {
       type: "input",
       name: "usage",
-      message: "Provide instructions and examples for use here:",
+      message: chalk.magenta("Provide instructions and examples for use here:"),
     },
     {
       type: "list",
       name: "license",
-      message: "Choose a license badge.",
+      message: chalk.magenta("Choose a license badge."),
       choices: [
         {
           name: "GNU General Public License v3.0",
@@ -58,24 +59,26 @@ inquirer
     {
       type: "input",
       name: "contributing",
-      message:
-        "How can other developers contribute to your project? What are the guidelines to follow?",
+      message: chalk.magenta(
+        "How can other developers contribute to your project? What are the guidelines to follow?"
+      ),
     },
     {
       type: "input",
       name: "tests",
-      message:
-        "Please provide examples here on how to run the tests for your application.",
+      message: chalk.magenta(
+        "Please provide examples here on how to run the tests for your application."
+      ),
     },
     {
       type: "input",
       name: "GitHubUsername",
-      message: "What is your GitHub username?",
+      message: chalk.magenta("What is your GitHub username?"),
     },
     {
       type: "input",
       name: "email",
-      message: "What is your email address?",
+      message: chalk.magenta("What is your email address?"),
     },
   ])
   .then((answer) => {
