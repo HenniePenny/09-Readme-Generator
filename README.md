@@ -32,5 +32,5 @@ First you need to install the needed packages by running the command `npm instal
 
 ## Links
 
-- [Link to walk-through video]()
+- [Link to walk-through video](https://drive.google.com/file/d/1uK-RuH37N8vB60FWkCssozpO2j3i3-l1/view)
 - [GitHub Repository](https://github.com/HenniePenny/09-Readme-Generator)
