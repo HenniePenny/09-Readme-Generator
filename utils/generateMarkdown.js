@@ -1,14 +1,3 @@
-//If the user does not want include the test section and leaves it empty, don't create the section
-// const conditionalRender = (answer, section) => {
-//   if (answer[section]) {
-//     return `
-// ## Tests
-
-// ${answer[section]}
-// `;
-//   } else return "";
-// };
-
 //If the user chooses "none" as their license, don't create the section in the README
 const renderLicenseSection = (answer, section) => {
   //if it is not a falsy value (i.e. undefined), then it is returned as true
@@ -21,6 +10,7 @@ ${addLicenseDescription(answer[section])}
   } else return "";
 };
 
+//pass in the license according to selection, or empty string if no license
 const createBadge = (license) => {
   const chosenBadge = {
     gnu: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
@@ -46,9 +36,6 @@ const addLicenseDescription = (license) => {
 
 //generate the markdown for the README file
 const generateReadmeFile = (answer) => {
-  //pass in the license according to selection, or empty string if no license
-
-  //
   const readmeTemplate = `
   # ${answer.projectTitle}
   
@@ -97,8 +84,19 @@ const generateReadmeFile = (answer) => {
 
 module.exports = generateReadmeFile;
 
+//*!Commented out for later reference/refactoring
 // ## License
 
 //   ${addLicenseDescription(answer.license)}
 
 // ${conditionalRender(answer, "tests")}
+//If the user does not want include the test section and leaves it empty, don't create the section
+// const conditionalRender = (answer, section) => {
+//   if (answer[section]) {
+//     return `
+// ## Tests
+
+// ${answer[section]}
+// `;
+//   } else return "";
+// };

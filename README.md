@@ -22,9 +22,13 @@ THEN I am taken to the corresponding section of the README
 
 ## Installation and Usage
 
-First you need to install the needed packages by running the command <npm install> in your terminal. Afterwards, install the needed packages by running the <npm install> command. A README file will be created containing the above-mentioned sections according to your input. The questions will look like this:
+First you need to install the needed packages by running the command `npm install` in your terminal. Afterwards, initiate the app by typing `node index.js`. You will be prompted with a series of questions: give your answer or make a choice accordingly. A README file will be created containing the above-mentioned sections according to your input. The questions will look like this:
 
 ![Screenshot of the app in the terminal](./assets/Screenshot_terminal.JPG)
+
+## Sources
+
+- [A template for creating open source contributor guidelines](https://opensource.com/life/16/3/contributor-guidelines-template-and-tips)
 
 ## Links
 
