@@ -1,7 +1,7 @@
 
   # Generate New Readme
   
-  [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
   ## Table of contents
   
@@ -19,7 +19,7 @@
   
   ## Installation
   
-  First you need to install the needed packages by running the command ``npm install`` in your terminal. Afterwards, initiate the app by typing ``node index.js``.
+  First you need to install the needed packages by running the command ``npm install`` in your terminal. Afterwards, initiate the app by typing ``node index.js``. 
   
   ## Usage
   
@@ -28,7 +28,7 @@
   
 ## License
   
-Licensed under the [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)
+Licensed under the [MIT license](https://choosealicense.com/licenses/mit/).
 
     
   ## Contributing
