@@ -3,6 +3,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 const generateReadmeFile = require("./utils/generateMarkdown");
 
+//writing a "demo_README.md" file, so that it does not overwrite this own project's README
 const writeReadmeFile = (readmeFile) => {
   fs.writeFile(`demo_README.md`, readmeFile, (err) =>
     err
@@ -11,6 +12,7 @@ const writeReadmeFile = (readmeFile) => {
   );
 };
 
+//creating the questions array inside the function to initialize the app
 inquirer
   .prompt([
     {
@@ -31,7 +33,9 @@ inquirer
     {
       type: "input",
       name: "usage",
-      message: chalk.magenta("Provide instructions and examples for use here:"),
+      message: chalk.magenta(
+        "Provide instructions and examples for usage here:"
+      ),
     },
     {
       type: "list",
@@ -52,7 +56,7 @@ inquirer
         },
         {
           name: "no license needed",
-          value: "none",
+          value: undefined,
         },
       ],
     },
